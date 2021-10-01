@@ -16,7 +16,6 @@ class NonFlyingBird(Bird):
     def __init__(self, name, ration="seed"):
         super(NonFlyingBird, self).__init__(name)
         self.ration = ration
-        del self.fly
 
     def swim(self):
         print(self.name + " can swim")
@@ -24,8 +23,8 @@ class NonFlyingBird(Bird):
     def eat(self):
         print(self.name + " eats mostly " + self.ration)
 
-    # def __delattr__(self, fly):
-    #     del self.fly
+    def fly(self):
+        raise AttributeError("NonFlyingBird cannot fly!")
 
     def __str__(self):
         return self.name + " can walk and swim"
@@ -51,8 +50,15 @@ class SuperBird(FlyingBird, NonFlyingBird):
         FlyingBird.__init__(self, name, ration)
         NonFlyingBird.__init__(self, name, ration)
 
+    def fly(self):
+        return Bird.fly(self)
+
 
 print(SuperBird.mro())
 b = NonFlyingBird("d")
+b.swim()
+s = SuperBird("Igor Grom", "shawarma")
+s.fly()
+s.swim()
+s.walk()
 b.fly()
-print()
