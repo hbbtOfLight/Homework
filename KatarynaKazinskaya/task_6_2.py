@@ -13,7 +13,10 @@ class CustomDict:
             self.map[key] = val
 
     def get_history(self):
-        return self.history
+        non_null_idx = 0
+        while self.history[non_null_idx] is None:
+            non_null_idx += 1
+        return list(self.history)[non_null_idx:]
 
     def get_val(self, val):
         return self.map[val]
@@ -22,6 +25,7 @@ class CustomDict:
 my_dict = CustomDict({"123": 2, "124": 5, 3: "d"})
 my_dict.set_val(1, 2)
 my_dict.set_val(3, 2)
+print(my_dict.get_history())
 my_dict.set_val("No rest for the wicked", "Panic!")
 my_dict.set_val("No est for the wicked", "Panic!")
 my_dict.set_val("No rest or the wicked", "Panic!")

@@ -61,4 +61,4 @@ s = SuperBird("Igor Grom", "shawarma")
 s.fly()
 s.swim()
 s.walk()
-b.fly()
+b.fly() # error

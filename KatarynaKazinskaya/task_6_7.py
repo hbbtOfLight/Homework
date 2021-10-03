@@ -32,7 +32,6 @@ class Money:
         add_val = other.val
         if other.currency != self.currency:
             add_val = add_val * Money.exchange_rate[self.currency] / Money.exchange_rate[other.currency]
-            print(add_val)
         return Money(self.val + add_val, self.currency)
 
     def __radd__(self, other):  #zero add for sum(list())
@@ -60,10 +59,10 @@ class Money:
 
 
 x = Money(10, "BYN")
-y = Money(11)  # define your own default value, e.g. “USD”
+y = Money(11)
 z = Money(12.34, "EUR")
 print(y + x)
-print(3.11 * x + z + y * 0.8)  # result in “EUR”
+print(3.11 * x + z + y * 0.8)
 lst = [Money(10, "BYN"), Money(11), Money(12.01, "JPY")]
 s = sum(lst)
 print(s)  # result in “BYN”
