@@ -6,6 +6,7 @@ def call_once(func, cache=None):
         return cache
     return wrapper
 
+
 @call_once
 def sum_of_numbers(a, b):
     return a + b
@@ -13,3 +14,4 @@ def sum_of_numbers(a, b):
 
 print(sum_of_numbers(13, 42))
 print(sum_of_numbers(999, 100))
+print(sum_of_numbers("45", 1))

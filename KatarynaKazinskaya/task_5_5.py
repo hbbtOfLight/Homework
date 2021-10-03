@@ -18,4 +18,4 @@ def sum_list(*args):
 
 sum_list("a", "b")
 sum_list("abc", "cde")
-sum_list(3, 4, 5)
+sum_list('3', '4', '5')

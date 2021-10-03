@@ -7,7 +7,6 @@ def most_common_words(filepath, count=3):
     file.close()
     frequency = dict()
     unique_words = list()
-    # alfabet = string.maketrans(string.digits + string.punctuation + string.whitespace, '')
 
     for s in data.split():
         s = s.strip(string.digits + string.punctuation + string.whitespace).lower()
@@ -16,9 +15,9 @@ def most_common_words(filepath, count=3):
         else:
             frequency[s] = 1
             unique_words.append(s.lower())
-    print(unique_words)
-    unique_words.sort(key=lambda x:frequency[x], reverse=True)
+    unique_words.sort(key=lambda x: frequency[x], reverse=True)
     return unique_words[:count]
 
 
 print(most_common_words("data/lorem_ipsum.txt", 3))
+print(most_common_words("data/lorem_ipsum.txt", 2))
